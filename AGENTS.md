@@ -1,4 +1,4 @@
-# AGENTS.md — vlm-principles
+# AGENTS.md — vlm-introduction
 
 本仓库是公开仓库，发布「多模态大模型原理」系列的讲义、口播稿和事实核对笔记。下面的规则只针对本仓库。
 
@@ -16,7 +16,7 @@
 
 1. 讲义放 `lecture/epNN/`，四个部分齐全；所有引用用相对路径（例如 `../assets/cat.png`），不得引用仓库外文件。
 2. 口播稿放 `transcripts/epNN.md` 和 `.json`，只保留字幕原文，不放配音用的改写文本。
-3. 成片作为 GitHub Release 附件上传（命名 `vlm-principles-epNN.mp4`），不提交进 Git。
+3. 成片作为 GitHub Release 附件上传（命名 `vlm-introduction-epNN.mp4`），不提交进 Git。
 4. README 表格加一行；未定稿的集要在 README 注明是初版及已知问题。
 5. 提交后用 GitHub Pages 地址打开新讲义，确认图片和字体正常加载。
 

@@ -1,4 +1,4 @@
-# 多模态大模型原理（EP01–04）
+# VLM Introduction：多模态大模型原理（EP01–04）
 
 一套讲「看图的大模型是怎么工作的」的入门系列：四集竖屏讲解视频，配三份 16:9 讲义。
 全系列拿一个真实模型 **Qwen3-VL-8B** 从头走到尾——图怎么切块、怎么编码、怎么交给语言模型、整个模型怎么训出来——数字按它的公开 config、源码和技术报告核对，核不到的地方在讲义里标明。
@@ -10,12 +10,12 @@
 
 | 集 | 主题 | 视频 | 讲义（在线翻页） | 口播稿 |
 | --- | --- | --- | --- | --- |
-| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-principles/releases/download/v1/vlm-principles-ep01.mp4)（3:18） | 无单独讲义，内容在 02–04 展开 | [ep01.md](transcripts/ep01.md) |
-| 02 | 视觉编码：缩放、切块、位置编码、ViT、合并器、视频 | [下载 / 播放](https://github.com/ManagerZhang10/vlm-principles/releases/download/v1/vlm-principles-ep02.mp4)（4:13） | [lecture/ep02](https://managerzhang10.github.io/vlm-principles/lecture/ep02/) | [ep02.md](transcripts/ep02.md) |
-| 03 | 图怎么交给大模型：占位符替换、因果注意力、MRoPE 三个坐标、视频时间戳、KV cache | [下载 / 播放](https://github.com/ManagerZhang10/vlm-principles/releases/download/v1/vlm-principles-ep03.mp4)（4:06） | [lecture/ep03](https://managerzhang10.github.io/vlm-principles/lecture/ep03/) | [ep03.md](transcripts/ep03.md) |
-| 04 | 训练：87 亿个参数从哪来（训练目标、四段预训练、SFT / 蒸馏 / 强化学习）**初版** | [下载 / 播放](https://github.com/ManagerZhang10/vlm-principles/releases/download/v1/vlm-principles-ep04.mp4)（4:02） | [lecture/ep04](https://managerzhang10.github.io/vlm-principles/lecture/ep04/) | [ep04.md](transcripts/ep04.md) |
+| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep01.mp4)（3:18） | 无单独讲义，内容在 02–04 展开 | [ep01.md](transcripts/ep01.md) |
+| 02 | 视觉编码：缩放、切块、位置编码、ViT、合并器、视频 | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep02.mp4)（4:13） | [lecture/ep02](https://managerzhang10.github.io/vlm-introduction/lecture/ep02/) | [ep02.md](transcripts/ep02.md) |
+| 03 | 图怎么交给大模型：占位符替换、因果注意力、MRoPE 三个坐标、视频时间戳、KV cache | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep03.mp4)（4:06） | [lecture/ep03](https://managerzhang10.github.io/vlm-introduction/lecture/ep03/) | [ep03.md](transcripts/ep03.md) |
+| 04 | 训练：87 亿个参数从哪来（训练目标、四段预训练、SFT / 蒸馏 / 强化学习）**初版** | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep04.mp4)（4:02） | [lecture/ep04](https://managerzhang10.github.io/vlm-introduction/lecture/ep04/) | [ep04.md](transcripts/ep04.md) |
 
-视频都在 [Release v1](https://github.com/ManagerZhang10/vlm-principles/releases/tag/v1) 的附件里，不进 Git 历史。
+视频都在 [Release v1](https://github.com/ManagerZhang10/vlm-introduction/releases/tag/v1) 的附件里，不进 Git 历史。
 口播稿另有只含字幕原文的 JSON 版（`transcripts/ep0N.json`）。
 
 ## 关于 EP04 初版
@@ -46,7 +46,7 @@ EP04 现在发布的是 v7 初版，和前三集相比有两点不同：
 ## 目录
 
 ```text
-vlm-principles/
+vlm-introduction/
 ├── lecture/
 │   └── ep02/ ep03/ ep04/
 │       ├── index.html     ← 翻页外壳，打开它即可
