@@ -1,16 +1,21 @@
 # VLM Introduction：多模态大模型原理（EP01–04）
 
-一套讲「看图的大模型是怎么工作的」的入门系列：四集竖屏讲解视频，配三份 16:9 讲义。
+一套讲「看图的大模型是怎么工作的」的入门系列：四集竖屏讲解视频，每集配一份 16:9 讲义。
 全系列拿一个真实模型 **Qwen3-VL-8B** 从头走到尾——图怎么切块、怎么编码、怎么交给语言模型、整个模型怎么训出来——数字按它的公开 config、源码和技术报告核对，核不到的地方在讲义里标明。
 
 - 视频：竖屏 1080×1920，每集 3～4 分钟，适合手机看。
 - 讲义：16:9 多页 HTML，比视频讲得更细，浏览器里直接翻页（← / → 键，ESC 回总览）。
 
+## 怎么看讲义
+
+- **在线看（推荐）**：直接打开 [EP01](https://managerzhang10.github.io/vlm-introduction/lecture/ep01/) · [EP02](https://managerzhang10.github.io/vlm-introduction/lecture/ep02/) · [EP03](https://managerzhang10.github.io/vlm-introduction/lecture/ep03/) · [EP04](https://managerzhang10.github.io/vlm-introduction/lecture/ep04/)，先看到全部页的总览，点任意一页或右下角「开始演示」进入翻页。
+- **下载到本地**：点仓库页面绿色的 Code → Download ZIP，解压后双击 `lecture/ep01/index.html`（其他集同理）。每页是 `slides/` 里一个单独的 HTML，由 `index.html` 拼成一套讲义，所以要下载整个文件夹，单独下载 `index.html` 打不开。也可以在仓库根目录跑 `python3 -m http.server`，再打开 `http://localhost:8000/lecture/ep01/`。讲义字体从 Google Fonts 加载，离线时会退回系统字体。
+
 ## 四集一览
 
 | 集 | 主题 | 视频 | 讲义（在线翻页） | 口播稿 |
 | --- | --- | --- | --- | --- |
-| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep01.mp4)（3:24） | 无单独讲义，内容在 02–04 展开 | [ep01.md](transcripts/ep01.md) |
+| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep01.mp4)（3:24） | [lecture/ep01](https://managerzhang10.github.io/vlm-introduction/lecture/ep01/) | [ep01.md](transcripts/ep01.md) |
 | 02 | 视觉编码：缩放、切块、位置编码、ViT、合并器、视频 | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep02.mp4)（4:18） | [lecture/ep02](https://managerzhang10.github.io/vlm-introduction/lecture/ep02/) | [ep02.md](transcripts/ep02.md) |
 | 03 | 图怎么交给大模型：占位符替换、因果注意力、MRoPE 三个坐标、视频时间戳、KV cache | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep03.mp4)（4:11） | [lecture/ep03](https://managerzhang10.github.io/vlm-introduction/lecture/ep03/) | [ep03.md](transcripts/ep03.md) |
 | 04 | 训练：87 亿个参数从哪来（训练目标、四段预训练、SFT / 蒸馏 / 强化学习） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep04.mp4)（4:15） | [lecture/ep04](https://managerzhang10.github.io/vlm-introduction/lecture/ep04/) | [ep04.md](transcripts/ep04.md) |
@@ -37,7 +42,7 @@
 ```text
 vlm-introduction/
 ├── lecture/
-│   └── ep02/ ep03/ ep04/
+│   └── ep01/ ep02/ ep03/ ep04/
 │       ├── index.html     ← 翻页外壳，打开它即可
 │       ├── slides/        ← 每页一个 HTML
 │       ├── thumbs/        ← 总览用的缩略图
@@ -47,8 +52,6 @@ vlm-introduction/
     ├── topic-position-encoding.md
     └── sources/           ← 事实核对笔记（结构、训练、EP04 训练方法）
 ```
-
-本地看讲义：克隆后直接双击 `lecture/ep04/index.html`；或在仓库根目录跑 `python3 -m http.server` 后打开 `http://localhost:8000/lecture/ep04/`。讲义字体从 Google Fonts 加载，离线时会退回系统字体。
 
 ## 许可
 
