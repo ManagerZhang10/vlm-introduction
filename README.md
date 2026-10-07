@@ -10,24 +10,13 @@
 
 | 集 | 主题 | 视频 | 讲义（在线翻页） | 口播稿 |
 | --- | --- | --- | --- | --- |
-| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep01.mp4)（3:18） | 无单独讲义，内容在 02–04 展开 | [ep01.md](transcripts/ep01.md) |
-| 02 | 视觉编码：缩放、切块、位置编码、ViT、合并器、视频 | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep02.mp4)（4:13） | [lecture/ep02](https://managerzhang10.github.io/vlm-introduction/lecture/ep02/) | [ep02.md](transcripts/ep02.md) |
-| 03 | 图怎么交给大模型：占位符替换、因果注意力、MRoPE 三个坐标、视频时间戳、KV cache | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep03.mp4)（4:06） | [lecture/ep03](https://managerzhang10.github.io/vlm-introduction/lecture/ep03/) | [ep03.md](transcripts/ep03.md) |
-| 04 | 训练：87 亿个参数从哪来（训练目标、四段预训练、SFT / 蒸馏 / 强化学习）**初版** | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep04.mp4)（4:02） | [lecture/ep04](https://managerzhang10.github.io/vlm-introduction/lecture/ep04/) | [ep04.md](transcripts/ep04.md) |
+| 01 | AI 怎么看懂图片和视频（总览：切块 → 投影 → 编码 → 对齐 → 拼接） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep01.mp4)（3:24） | 无单独讲义，内容在 02–04 展开 | [ep01.md](transcripts/ep01.md) |
+| 02 | 视觉编码：缩放、切块、位置编码、ViT、合并器、视频 | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep02.mp4)（4:18） | [lecture/ep02](https://managerzhang10.github.io/vlm-introduction/lecture/ep02/) | [ep02.md](transcripts/ep02.md) |
+| 03 | 图怎么交给大模型：占位符替换、因果注意力、MRoPE 三个坐标、视频时间戳、KV cache | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep03.mp4)（4:11） | [lecture/ep03](https://managerzhang10.github.io/vlm-introduction/lecture/ep03/) | [ep03.md](transcripts/ep03.md) |
+| 04 | 训练：87 亿个参数从哪来（训练目标、四段预训练、SFT / 蒸馏 / 强化学习） | [下载 / 播放](https://github.com/ManagerZhang10/vlm-introduction/releases/download/v1/vlm-introduction-ep04.mp4)（4:15） | [lecture/ep04](https://managerzhang10.github.io/vlm-introduction/lecture/ep04/) | [ep04.md](transcripts/ep04.md) |
 
 视频都在 [Release v1](https://github.com/ManagerZhang10/vlm-introduction/releases/tag/v1) 的附件里，不进 Git 历史。
 口播稿另有只含字幕原文的 JSON 版（`transcripts/ep0N.json`）。
-
-## 关于 EP04 初版
-
-EP04 现在发布的是 v7 初版，和前三集相比有两点不同：
-
-1. **出镜画面没有对口型**：右上角小窗是本人录像的占位，口型和配音对不上，定稿时再统一处理。
-2. **有 4 条已知待改问题**，下一版修：
-   - 2:40 SFT 段「删掉不看图也能做对的数学题」，删除横线画的位置不对，没有划在题目文字上；
-   - 2:44 蒸馏段「先学大老师写好的答案」，「大老师」听着像口误，要改成「大模型老师」；
-   - 2:58 蒸馏段没讲清「只用纯文本、只调大模型」，画面要补一张结构小图；
-   - 3:23 强化学习段「换成平滑衰减，训练更稳」配音断句错，听成「平滑，衰减训练更稳」。
 
 ## 事实来源与阅读提示
 
@@ -38,7 +27,7 @@ EP04 现在发布的是 v7 初版，和前三集相比有两点不同：
 
 ## 制作说明
 
-- 口播用的是作者本人声音的克隆；出镜画面是本人录像加对口型（EP04 初版除外，见上）。
+- 口播用的是作者本人声音的克隆；出镜画面是本人录像加对口型。
 - 背景音乐由 ElevenLabs Music 生成。
 - 示意图里的折耳猫照片在整个系列反复使用，随本仓库一起以 CC BY 4.0 发布。
 - 制作流水线（配音、对口型、渲染脚本）不在本仓库。
