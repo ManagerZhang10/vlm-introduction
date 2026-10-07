@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>03b-limits</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#16181B;--card:#202328;--card2:#272B31;--fg:#ECECEC;--mu:#9AA0A6;--bl:#58C4DD;--yl:#FFE066;--gr:#5CD0B3;--rd:#FC6255;--pu:#B189F5}
+html,body{margin:0;background:#16181B}*{box-sizing:border-box}
+body{width:1920px;height:1080px;overflow:hidden;position:relative;background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",sans-serif;padding:72px 100px;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1{font:900 54px/1.25 "Noto Sans SC";margin:0;letter-spacing:.01em}
+.sub{font-size:25px;color:var(--mu);margin-top:14px;line-height:1.5;max-width:1600px}
+.bl{color:var(--bl)}.yl{color:var(--yl)}.gr{color:var(--gr)}.rd{color:var(--rd)}.pu{color:var(--pu)}.mu{color:var(--mu)}
+.mono,.chip{font-family:"JetBrains Mono",monospace;font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
+.card{background:var(--card);border-radius:18px;padding:26px 30px}
+.vec{display:inline-flex;gap:4px;vertical-align:middle}.vec i{width:18px;height:18px;display:block;border-radius:4px}
+.vcol{display:inline-flex;flex-direction:column;gap:4px;vertical-align:middle}.vcol i{width:34px;height:12px;display:block;border-radius:3px}
+.ar{color:#5F666E;font-size:40px;display:flex;align-items:center;justify-content:center}
+.foot{position:absolute;left:100px;bottom:40px;font-size:18px;color:#6E757C}
+.cat{display:block;object-fit:cover;border-radius:12px}
+.chip{display:inline-block;font:500 22px Menlo,"SF Mono",monospace;padding:6px 12px;border-radius:8px;margin:4px}
+table{border-collapse:collapse;width:100%}
+td,th{padding:14px 18px;text-align:left;font-size:23px;border-bottom:1px solid #2E3238}
+th{color:var(--mu);font-weight:500;font-size:20px}
+.tag{display:inline-block;font-size:18px;padding:3px 10px;border-radius:6px;background:var(--card2);color:var(--mu)}
+body{padding-top:96px}.nav{position:absolute;left:100px;right:100px;top:22px;display:flex;gap:10px}
+.nv{border-top:4px solid #2E3238;padding-top:6px}.nv.past{border-color:#58C4DD66}.nv.cur{border-color:var(--c)}
+.nl{font-size:16px;color:#6E757C;white-space:nowrap}.nv.past .nl{color:#8A9199}.nv.cur .nl{color:var(--c);font-weight:700}
+.nd2{display:none}.h{font:900 30px "Noto Sans SC"}.h span{display:block;font-size:20px;color:var(--mu);font-weight:400;margin-top:6px}.lm ul{font-size:23px;line-height:1.85;margin:14px 0 0;padding-left:26px}.ex{text-align:center;padding:20px}.nm{font:700 24px "Noto Sans SC"}.nm span{display:block;font-size:18px;color:var(--mu);font-weight:400}.cmp{height:180px;display:flex;align-items:center;justify-content:center;gap:20px}.bx{border:3px solid;border-radius:4px}.arr{font-size:28px;color:#5F666E}.ex .mono{font-size:21px}</style></head><body><div class="nav"><div class="nv past" style="flex:3.5;--c:var(--fg)"><div class="nl">输入输出</div><div class="nd2"><i class="pd"></i></div></div><div class="nv past" style="flex:8.5;--c:var(--bl)"><div class="nl">A · 经典 ViT</div><div class="nd2"><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i></div></div><div class="nv past" style="flex:3.5;--c:var(--fg)"><div class="nl">B · Qwen3-VL 全览</div><div class="nd2"><i class="pd"></i></div></div><div class="nv cur" style="flex:5.5;--c:var(--bl)"><div class="nl">预处理 · 3/3</div><div class="nd2"><i class="pd"></i><i class="pd"></i><i class="on"></i></div></div><div class="nv" style="flex:4.5;--c:var(--yl)"><div class="nl">切块投影</div><div class="nd2"><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:5.5;--c:var(--pu)"><div class="nl">位置</div><div class="nd2"><i class=""></i><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:4.5;--c:var(--yl)"><div class="nl">注意力</div><div class="nd2"><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:4.5;--c:var(--gr)"><div class="nl">合并器</div><div class="nd2"><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:4.5;--c:var(--gr)"><div class="nl">交给大模型</div><div class="nd2"><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:5.5;--c:var(--bl)"><div class="nl">视频</div><div class="nd2"><i class=""></i><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:3.5;--c:var(--gr)"><div class="nl">C · Qwen3.8</div><div class="nd2"><i class=""></i></div></div><div class="nv" style="flex:4.5;--c:var(--fg)"><div class="nl">总结</div><div class="nd2"><i class=""></i><i class=""></i></div></div></div><h1>token 数既是信息量也是成本：所以要给它设 <span class="rd">上下限</span></h1><div class="sub">1 个 token = 32×32 像素（上一页）。太大算不起，太小没东西可看，所以一张图的 token 数被卡在 64 ～ 16,384 之间，超出就整张等比缩放。</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:44px">
+  <div class="card lm" style="border-top:5px solid var(--rd)"><div class="h">上限：16,384 个 token<span>总像素 16,777,216，约等于 4096×4096</span></div>
+  <ul><li>边长翻倍 → token <span class="mono">×4</span> → ViT 两两打分 <span class="mono rd">×16</span>（打分次数是序列长度的平方）</li><li>ViT 里还没合并，序列是 4 倍：<span class="mono">65,536</span>，两两打分要算约 <span class="mono rd">43 亿</span>个分数</li><li>超过就<b>等比缩小</b>、向下取整</li></ul></div>
+  <div class="card lm" style="border-top:5px solid var(--bl)"><div class="h">下限：64 个 token<span>总像素 65,536，约等于 256×256</span></div>
+  <ul><li>图太小，切出来的 token 少到表达不了形状</li><li>120×30 的标签按原尺寸只有 <span class="mono">4×1 = 4</span> 个 token</li><li>低于下限就<b>等比放大</b>、向上取整</li></ul></div></div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:30px"><div class="card ex"><div class="nm">普通照片<span>在范围内，只取整</span></div>
+    <div class="cmp"><div class="bx" style="width:200px;height:112px;border-color:var(--bl)"></div>
+    <div class="arr">→</div><div class="bx" style="width:200px;height:113px;border-color:var(--gr)"></div></div>
+    <div class="mono"><span class="bl">1920×1080</span> → <span class="gr">1920×1088</span>　<b class="gr">2,040</b> token</div></div><div class="card ex"><div class="nm">很小的标签<span>只有 4 个 token → 放大到下限</span></div>
+    <div class="cmp"><div class="bx" style="width:47px;height:12px;border-color:var(--bl)"></div>
+    <div class="arr">→</div><div class="bx" style="width:200px;height:50px;border-color:var(--gr)"></div></div>
+    <div class="mono"><span class="bl">120×30</span> → <span class="gr">512×128</span>　<b class="gr">64</b> token</div></div><div class="card ex"><div class="nm">超大图<span>4.7 万个 token → 缩小到上限</span></div>
+    <div class="cmp"><div class="bx" style="width:200px;height:150px;border-color:var(--bl)"></div>
+    <div class="arr">→</div><div class="bx" style="width:118px;height:88px;border-color:var(--gr)"></div></div>
+    <div class="mono"><span class="bl">8000×6000</span> → <span class="gr">4704×3520</span>　<b class="gr">16,170</b> token</div></div></div><div class="foot">上下限取值来自 preprocessor_config 的 shortest_edge / longest_edge；官方未说明为何取这两个数。长宽比超过 200 直接报错</div></body></html>

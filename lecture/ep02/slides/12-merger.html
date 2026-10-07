@@ -1,0 +1,38 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>12-merger</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#16181B;--card:#202328;--card2:#272B31;--fg:#ECECEC;--mu:#9AA0A6;--bl:#58C4DD;--yl:#FFE066;--gr:#5CD0B3;--rd:#FC6255;--pu:#B189F5}
+html,body{margin:0;background:#16181B}*{box-sizing:border-box}
+body{width:1920px;height:1080px;overflow:hidden;position:relative;background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",sans-serif;padding:72px 100px;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1{font:900 54px/1.25 "Noto Sans SC";margin:0;letter-spacing:.01em}
+.sub{font-size:25px;color:var(--mu);margin-top:14px;line-height:1.5;max-width:1600px}
+.bl{color:var(--bl)}.yl{color:var(--yl)}.gr{color:var(--gr)}.rd{color:var(--rd)}.pu{color:var(--pu)}.mu{color:var(--mu)}
+.mono,.chip{font-family:"JetBrains Mono",monospace;font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
+.card{background:var(--card);border-radius:18px;padding:26px 30px}
+.vec{display:inline-flex;gap:4px;vertical-align:middle}.vec i{width:18px;height:18px;display:block;border-radius:4px}
+.vcol{display:inline-flex;flex-direction:column;gap:4px;vertical-align:middle}.vcol i{width:34px;height:12px;display:block;border-radius:3px}
+.ar{color:#5F666E;font-size:40px;display:flex;align-items:center;justify-content:center}
+.foot{position:absolute;left:100px;bottom:40px;font-size:18px;color:#6E757C}
+.cat{display:block;object-fit:cover;border-radius:12px}
+.chip{display:inline-block;font:500 22px Menlo,"SF Mono",monospace;padding:6px 12px;border-radius:8px;margin:4px}
+table{border-collapse:collapse;width:100%}
+td,th{padding:14px 18px;text-align:left;font-size:23px;border-bottom:1px solid #2E3238}
+th{color:var(--mu);font-weight:500;font-size:20px}
+.tag{display:inline-block;font-size:18px;padding:3px 10px;border-radius:6px;background:var(--card2);color:var(--mu)}
+body{padding-top:96px}.nav{position:absolute;left:100px;right:100px;top:22px;display:flex;gap:10px}
+.nv{border-top:4px solid #2E3238;padding-top:6px}.nv.past{border-color:#58C4DD66}.nv.cur{border-color:var(--c)}
+.nl{font-size:16px;color:#6E757C;white-space:nowrap}.nv.past .nl{color:#8A9199}.nv.cur .nl{color:var(--c);font-weight:700}
+.nd2{display:none}.lm{font-size:22px;line-height:1.75}.lm b{display:block;font-size:26px;margin-bottom:6px}.q{text-align:center}.q4{display:grid;grid-template-columns:52px 52px;gap:6px}.q4 i{display:block;height:52px;border-radius:8px;background:#FFE06666;border:2px solid var(--yl)}.q span{display:block;font:500 17px "JetBrains Mono";color:var(--mu);margin-top:8px}.bk{border:3px solid var(--yl);border-radius:14px;padding:16px 14px;text-align:center;font-size:24px;font-weight:700}.bk span{display:block;font:500 17px "JetBrains Mono";color:var(--mu);margin-top:6px}.ar{font-size:26px}td{font-size:21px;padding:9px 14px}th{font-size:22px}</style></head><body><div class="nav"><div class="nv past" style="flex:3.5;--c:var(--fg)"><div class="nl">输入输出</div><div class="nd2"><i class="pd"></i></div></div><div class="nv past" style="flex:8.5;--c:var(--bl)"><div class="nl">A · 经典 ViT</div><div class="nd2"><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i><i class="pd"></i></div></div><div class="nv past" style="flex:3.5;--c:var(--fg)"><div class="nl">B · Qwen3-VL 全览</div><div class="nd2"><i class="pd"></i></div></div><div class="nv past" style="flex:5.5;--c:var(--bl)"><div class="nl">预处理</div><div class="nd2"><i class="pd"></i><i class="pd"></i><i class="pd"></i></div></div><div class="nv past" style="flex:4.5;--c:var(--yl)"><div class="nl">切块投影</div><div class="nd2"><i class="pd"></i><i class="pd"></i></div></div><div class="nv past" style="flex:5.5;--c:var(--pu)"><div class="nl">位置</div><div class="nd2"><i class="pd"></i><i class="pd"></i><i class="pd"></i></div></div><div class="nv past" style="flex:4.5;--c:var(--yl)"><div class="nl">注意力</div><div class="nd2"><i class="pd"></i><i class="pd"></i></div></div><div class="nv cur" style="flex:4.5;--c:var(--gr)"><div class="nl">合并器 · 2/2</div><div class="nd2"><i class="pd"></i><i class="on"></i></div></div><div class="nv" style="flex:4.5;--c:var(--gr)"><div class="nl">交给大模型</div><div class="nd2"><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:5.5;--c:var(--bl)"><div class="nl">视频</div><div class="nd2"><i class=""></i><i class=""></i><i class=""></i></div></div><div class="nv" style="flex:3.5;--c:var(--gr)"><div class="nl">C · Qwen3.8</div><div class="nd2"><i class=""></i></div></div><div class="nv" style="flex:4.5;--c:var(--fg)"><div class="nl">总结</div><div class="nd2"><i class=""></i><i class=""></i></div></div></div><h1>要把视觉 token 送进大模型：<span class="gr">先减数量，再换到语言空间</span></h1><div class="sub">ViT 已经把图读成了 8160 个向量；要交给大模型，还卡着两个限制，所以合并器分两步做。</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px">
+  <div class="card lm"><b class="rd">限制 ① 数量</b>ViT 出来 8160 块，是最终 token 数的 4 倍。每个 token 进大模型都要算 36 层、占 KV cache。<br><span class="gr">→ 相邻 2×2 四块拼成一个：8160 → 2040</span></div>
+  <div class="card lm"><b class="rd">限制 ② 宽度和空间</b>ViT 的向量 1152 维，大模型要 4096 维；两边的特征空间也不一样，不能直接塞。<br><span class="gr">→ 两层 MLP 映射过去：4608 → 4096</span></div></div>
+  <div style="display:flex;align-items:center;gap:24px;margin-top:26px;justify-content:center">
+  <div class="q"><div class="q4"><i></i><i></i><i></i><i></i></div><span>2×2 四块<br>各 1152 维</span></div><div class="ar">→</div>
+  <div class="bk">LayerNorm<span>每块各自归一化</span></div><div class="ar">→</div>
+  <div class="bk">拼接<span>4 × 1152 = 4608</span></div><div class="ar">→</div>
+  <div class="bk">Linear<span>4608 → 4608</span></div><div class="ar">→</div>
+  <div class="bk">GELU<span>精确版</span></div><div class="ar">→</div>
+  <div class="bk" style="border-color:var(--gr)">Linear<span>4608 → 4096</span></div><div class="ar">→</div>
+  <div class="q"><span class="vec"><i style="background:hsl(165,80%,63%)"></i><i style="background:hsl(162,57%,56%)"></i><i style="background:hsl(157,80%,42%)"></i><i style="background:hsl(169,75%,54%)"></i><i style="background:hsl(157,68%,57%)"></i><i style="background:hsl(160,70%,43%)"></i><i style="background:hsl(170,85%,47%)"></i><i style="background:hsl(159,60%,43%)"></i><i style="background:hsl(158,55%,64%)"></i><i style="background:hsl(161,72%,61%)"></i></span><span>1 个 × 4096</span></div></div>
+  <div class="card" style="margin-top:24px;padding:4px 20px"><table>
+  <tr><th></th><th class="mu">原版 ViT：[CLS] + 分类头</th><th class="gr">Qwen3-VL：合并器</th></tr>
+  <tr><td class="mu">留下什么</td><td>只留 [CLS] 1 个向量</td><td>所有块都留，合成 2040 个</td></tr>
+  <tr><td class="mu">接着做什么</td><td>线性层，在 1000 个类别里选一个</td><td>只换格式，不判断图里是什么</td></tr>
+  <tr><td class="mu">谁给答案</td><td>分类头直接输出「猫」</td><td>大模型读完 2040 个 token，用文字回答：品种、几只、牌子上写了什么</td></tr></table></div><div class="foot">PatchMerger：LayerNorm(1152) → view 4608 → Linear → nn.GELU（精确版，和 ViT 里 MLP 的 tanh 近似不同）→ Linear(4608, 4096)；参数约 0.40 亿</div></body></html>

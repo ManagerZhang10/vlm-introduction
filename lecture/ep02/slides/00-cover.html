@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>00-cover</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#16181B;--card:#202328;--card2:#272B31;--fg:#ECECEC;--mu:#9AA0A6;--bl:#58C4DD;--yl:#FFE066;--gr:#5CD0B3;--rd:#FC6255;--pu:#B189F5}
+html,body{margin:0;background:#16181B}*{box-sizing:border-box}
+body{width:1920px;height:1080px;overflow:hidden;position:relative;background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",sans-serif;padding:72px 100px;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1{font:900 54px/1.25 "Noto Sans SC";margin:0;letter-spacing:.01em}
+.sub{font-size:25px;color:var(--mu);margin-top:14px;line-height:1.5;max-width:1600px}
+.bl{color:var(--bl)}.yl{color:var(--yl)}.gr{color:var(--gr)}.rd{color:var(--rd)}.pu{color:var(--pu)}.mu{color:var(--mu)}
+.mono,.chip{font-family:"JetBrains Mono",monospace;font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
+.card{background:var(--card);border-radius:18px;padding:26px 30px}
+.vec{display:inline-flex;gap:4px;vertical-align:middle}.vec i{width:18px;height:18px;display:block;border-radius:4px}
+.vcol{display:inline-flex;flex-direction:column;gap:4px;vertical-align:middle}.vcol i{width:34px;height:12px;display:block;border-radius:3px}
+.ar{color:#5F666E;font-size:40px;display:flex;align-items:center;justify-content:center}
+.foot{position:absolute;left:100px;bottom:40px;font-size:18px;color:#6E757C}
+.cat{display:block;object-fit:cover;border-radius:12px}
+.chip{display:inline-block;font:500 22px Menlo,"SF Mono",monospace;padding:6px 12px;border-radius:8px;margin:4px}
+table{border-collapse:collapse;width:100%}
+td,th{padding:14px 18px;text-align:left;font-size:23px;border-bottom:1px solid #2E3238}
+th{color:var(--mu);font-weight:500;font-size:20px}
+.tag{display:inline-block;font-size:18px;padding:3px 10px;border-radius:6px;background:var(--card2);color:var(--mu)}
+</style></head><body><h1>多模态大模型原理 · 视觉编码<br><span class="bl">图和视频</span>怎么变成 <span class="gr">token</span></h1><div class="sub">讲义版：每一步给出张量形状、参数量和源码依据。先讲经典 ViT，再讲 Qwen3-VL 改了什么，最后看最新的 Qwen3.8。</div><div style="display:flex;gap:70px;align-items:center;margin-top:90px"><img class="cat" src="../assets/cat.png" style="width:380px;height:380px;">
+  <div style="font-size:30px;line-height:2.1">
+  <div><span class="bl mono">1920×1080×3</span> 像素</div>
+  <div class="mu">↓ 缩放 · 切块 · 加位置 · 27 层 ViT · 合并</div>
+  <div><span class="gr mono">2040 × 4096</span> 个向量 → 交给 36 层的大模型</div>
+  <div class="mu" style="font-size:24px;margin-top:20px">视频走同一条路：每秒抽 2 帧，两帧一组</div></div></div><div class="foot">EP02 讲义 · 2026-10</div></body></html>
